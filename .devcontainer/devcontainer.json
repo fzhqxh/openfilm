@@ -1,0 +1,32 @@
+{
+  "name": "OpenFilm Studio",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "bash .devcontainer/start-openfilm.sh",
+  "postAttachCommand": "bash .devcontainer/start-openfilm.sh",
+  "forwardPorts": [4848, 4849],
+  "portsAttributes": {
+    "4848": {
+      "label": "OpenFilm Studio",
+      "onAutoForward": "notify",
+      "visibility": "private"
+    },
+    "4849": {
+      "label": "OpenFilm Film Preview",
+      "onAutoForward": "silent",
+      "visibility": "private"
+    }
+  },
+  "containerEnv": {
+    "OPENFILM_NO_BROWSER": "1"
+  },
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb",
+    "storage": "32gb"
+  }
+}
